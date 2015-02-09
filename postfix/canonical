@@ -1,0 +1,10 @@
+# In here you can map outgoing addresses.
+# For example, given the (uncommented) line
+#dumbApp@lucaswerkmeister.de mail@lucaswerkmeister.de
+# every email sent from dumbApp@lucaswerkmeister.de
+# is sent from mail@lucaswerkmeister.de instead.
+# This is useful if dumbApp doesn't allow you
+# to configure this within the app.
+# 
+# After you change this line, you need to rehash it
+# using the command `postmap /etc/postfix/canonical`.

@@ -1,0 +1,2 @@
+virtual filter=git-crypt diff=git-crypt
+virtual-mailbox-users filter=git-crypt diff=git-crypt
