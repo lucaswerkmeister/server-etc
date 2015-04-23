@@ -161,5 +161,9 @@
 
 	# HSTS; max-age in seconds: 311040000 seconds = 1 year
 	Header always set Strict-Transport-Security "max-age=311040000; includeSubDomains"
+
+	# RIP Terry Pratchett
+	# https://np.reddit.com/r/discworld/comments/2yt9j6/gnu_terry_pratchett/cpcvz46
+	Header set X-Clacks-Overhead "GNU Terry Pratchett"
 </VirtualHost>
 </IfModule>
