@@ -28,7 +28,7 @@
 	# alert, emerg.
 	LogLevel warn
 
-	CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+	CustomLog ${APACHE_LOG_DIR}/ssl_access.log vhost_combined
 
 	#   SSL Engine Switch:
 	#   Enable/Disable SSL for this virtual host.
