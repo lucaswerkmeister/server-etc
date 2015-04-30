@@ -1,1 +1,6 @@
-ServerName lucaswerkmeister.de
+# THIS MUST NOT BE THE ACTUAL SERVER NAME
+# We set the server name per VHost inside the <VirtualHost> directive.
+# If this ServerName conflicts with that, then the VHost is not chosen for this ServerName –
+# the practical effect being that lucaswerkmeister.de uses the default configuration
+# and only www.lucaswerkmeister.de, fubar.lucaswerkmeister.de etc. use the VHost.
+ServerName null

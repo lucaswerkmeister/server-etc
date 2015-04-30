@@ -1,6 +1,11 @@
 <IfModule mod_ssl.c>
 <VirtualHost *:443>
-	DocumentRoot /var/www-unknown
+	ServerAdmin webmaster@lucaswerkmeister.de
+
+	ServerName lucaswerkmeister.de
+	ServerAlias *.lucaswerkmeister.de
+
+	DocumentRoot /var/www
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
