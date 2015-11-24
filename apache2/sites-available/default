@@ -1,3 +1,4 @@
+# THIS IS NOT THE lucaswerkmeister.de SITE
 <VirtualHost *:80>
 	# VirtualHost for unknown hosts
 	# (i. e., domains that are not mine but where the server was cancelled and I now have the IPv4)
