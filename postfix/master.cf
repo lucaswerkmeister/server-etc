@@ -116,4 +116,4 @@ mailman   unix  -       n       n       -       -       pipe
 # dovecot
 dovecot   unix  -       n       n       -       -       pipe
   flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver
-  -f ${sender} -d ${recipient}
+  -f ${sender} -d ${recipient} -m ${extension}
