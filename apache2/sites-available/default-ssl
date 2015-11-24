@@ -30,7 +30,7 @@
 	#   /usr/share/doc/apache2.2-common/README.Debian.gz for more info.
 	#   If both key and certificate are stored in the same file, only the
 	#   SSLCertificateFile directive is needed.
-	SSLCertificateFile    /etc/ssl/certs/lucaswerkmeister.de.pem
+	SSLCertificateFile    /etc/ssl/certs/lucaswerkmeister.de+dhparams.pem
 	SSLCertificateKeyFile /etc/ssl/private/lucaswerkmeister.de.key
 
 	#   Server Certificate Chain:
