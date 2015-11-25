@@ -1,8 +1,0 @@
-# THIS IS NOT THE lucaswerkmeister.de SITE
-<VirtualHost *:80>
-	# VirtualHost for unknown hosts
-	# (i. e., domains that are not mine but where the server was cancelled and I now have the IPv4)
-	DocumentRoot /var/www-unknown
-
-	CustomLog ${APACHE_LOG_DIR}/access-unknown.log vhost_combined
-</VirtualHost>
