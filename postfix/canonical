@@ -6,5 +6,5 @@
 # This is useful if dumbApp doesn't allow you
 # to configure this within the app.
 # 
-# After you change this line, you need to rehash it
+# After you change this file, you need to rehash it
 # using the command `postmap /etc/postfix/canonical`.
