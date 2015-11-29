@@ -8,3 +8,6 @@
 # 
 # After you change this file, you need to rehash it
 # using the command `postmap /etc/postfix/canonical`.
+
+# For sendmail without -F
+lucas@lucaswerkmeister.de        mail@lucaswerkmeister.de
