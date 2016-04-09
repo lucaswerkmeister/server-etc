@@ -67,7 +67,7 @@ unknown_address_reject_code = 550
 unknown_hostname_reject_code = 550
 unknown_client_reject_code = 550
 
-smtpd_tls_ask_ccert = yes
+smtpd_tls_ask_ccert = no
 smtpd_tls_cert_file = /etc/ssl/certs/lucaswerkmeister.de.pem
 smtpd_tls_key_file = /etc/ssl/private/lucaswerkmeister.de.key
 smtpd_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
