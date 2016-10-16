@@ -1,0 +1,23 @@
+[Unit]
+Description=Anonymizing Overlay Network
+Documentation=man:tor(1)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=debian-tor
+ExecStart=/usr/bin/tor -f /etc/tor/torrc --defaults-torrc /etc/tor/tor-service-defaults-torrc
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+RuntimeDirectory=tor
+RuntimeDirectoryMode=02750
+TimeoutSec=5min
+LimitNOFILE=32768
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target
