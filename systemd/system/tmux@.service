@@ -1,0 +1,12 @@
+[Unit]
+Description=Terminal multiplexer for user %i
+
+[Service]
+User=%i
+Type=forking
+ExecStart=/usr/bin/tmux -2 -u new-session -d
+ExecStop=/usr/bin/tmux kill-server
+WorkingDirectory=~
+
+[Install]
+WantedBy=multi-user.target
