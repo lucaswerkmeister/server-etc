@@ -90,7 +90,7 @@ milter_connect_macros = j {daemon_name} v {if_name} _
 non_smtpd_milters = $smtpd_milters
 #smtpd_milters = unix:/spamass/spamass.sock unix:/clamav/clamav-milter.ctl unix:/opendkim/opendkim.sock
 # ClamAV disabled for now: can't start because of memory constraints
-smtpd_milters = unix:/spamass/spamass.sock unix:/opendkim/opendkim.sock
+smtpd_milters = unix:/spamass/spamass.sock unix:/opendkim/opendkim.sock unix:/opendmarc/opendmarc.sock
 
 default_destination_concurrency_limit = 5
 disable_vrfy_command = yes
