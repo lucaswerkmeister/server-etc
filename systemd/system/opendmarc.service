@@ -1,0 +1,21 @@
+[Unit]
+Description=OpenDMARC email validation system
+Documentation=man:opendmarc(8) man:opendmarc.conf(5) man:opendmarc-import(8) man:opendmarc-reports(8) http://www.trusteddomain.org/opendmarc/
+
+[Service]
+ExecStart=/usr/sbin/opendmarc -f
+Type=simple
+ExecReload=/bin/kill -USR1 $MAINPID
+User=opendmarc
+
+ReadOnlyDirectories=/
+ReadWriteDirectories=/var/tmp /var/run/opendmarc /var/spool/postfix/opendmarc
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=full
+ProtectHome=yes
+NoNewPrivileges=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
