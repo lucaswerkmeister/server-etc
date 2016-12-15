@@ -9,13 +9,17 @@ ExecReload=/bin/kill -USR1 $MAINPID
 User=opendmarc
 
 ReadOnlyDirectories=/
-ReadWriteDirectories=/var/tmp /var/run/opendmarc /var/spool/postfix/opendmarc
+ReadWriteDirectories=/var/tmp # TemporaryDirectory (default); cf. PrivateTmp=yes
+ReadWriteDirectories=/var/log/opendmarc # HistoryFile
+ReadWriteDirectories=/var/spool/postfix/opendmarc # Socket
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectSystem=full
 ProtectHome=yes
 NoNewPrivileges=yes
-RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictAddressFamilies=AF_UNIX # Socket
+RestrictAddressFamilies=AF_INET # DNS (IPv4)
+RestrictAddressFamilies=AF_INET6 # DNS (IPv6)
 
 [Install]
 WantedBy=multi-user.target
