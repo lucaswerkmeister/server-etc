@@ -1,25 +1,46 @@
 [Unit]
 Description=OpenDMARC email validation system
 Documentation=man:opendmarc(8) man:opendmarc.conf(5) man:opendmarc-import(8) man:opendmarc-reports(8) http://www.trusteddomain.org/opendmarc/
+After=network.target nss-lookup.target
 
 [Service]
-ExecStart=/usr/sbin/opendmarc -f
-Type=simple
-ExecReload=/bin/kill -USR1 $MAINPID
+RuntimeDirectory=opendmarc
+Type=forking
+PIDFile=/run/opendmarc/opendmarc.pid
 User=opendmarc
+ExecStart=/usr/sbin/opendmarc -u opendmarc -P /run/opendmarc/opendmarc.pid
+Restart=on-failure
+ExecReload=/bin/kill -USR1 $MAINPID
 
+# not allowed to write anywhere
 ReadOnlyDirectories=/
-ReadWriteDirectories=/var/tmp # TemporaryDirectory (default); cf. PrivateTmp=yes
-ReadWriteDirectories=/var/log/opendmarc # HistoryFile
-ReadWriteDirectories=/var/spool/postfix/opendmarc # Socket
+# ...except:
+# PidFile (-P); cf. RuntimeDirectory=opendmarc
+ReadWriteDirectories=/run/opendmarc
+# TemporaryDirectory (default); cf. PrivateTmp=yes
+ReadWriteDirectories=/var/tmp
+# HistoryFile
+ReadWriteDirectories=/var/log/opendmarc
+# Socket
+ReadWriteDirectories=/var/spool/postfix/opendmarc
+
+# custom /tmp, /var/tmp, /dev
 PrivateTmp=yes
 PrivateDevices=yes
+# read-only system directories
 ProtectSystem=full
+# no home at all
 ProtectHome=yes
+# no setuid, no sticky bit
 NoNewPrivileges=yes
-RestrictAddressFamilies=AF_UNIX # Socket
-RestrictAddressFamilies=AF_INET # DNS (IPv4)
-RestrictAddressFamilies=AF_INET6 # DNS (IPv6)
+
+# only a few address families:
+# Socket for communication with sendmail
+RestrictAddressFamilies=AF_UNIX
+# IPv4 for DNS (_dmarc.domain)
+RestrictAddressFamilies=AF_INET
+# IPv6 for DNS (_dmarc.domain)
+RestrictAddressFamilies=AF_INET6
 
 [Install]
 WantedBy=multi-user.target
