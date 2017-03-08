@@ -1,0 +1,32 @@
+[Unit]
+Description=git web server
+Documentation=man:gitweb(1) man:gitweb.conf(5)
+Before=apache2.service
+
+[Service]
+ExecStart=/usr/share/gitweb/gitweb.cgi --fastcgi
+# gitweb kills itself every 100 requests (I think), expects to be restarted externally
+Restart=on-success
+# create a directory that gitweb can write to…
+RuntimeDirectory=%p
+# …and place the socket in that directory
+Environment=FCGI_SOCKET_PATH=%t/%p/gitweb
+# don’t run gitweb as root…
+User=nobody
+# …but allow Apache to access gitweb’s socket…
+Group=www-data
+# …by making that socket group-writable as well
+UMask=0002
+
+# sandboxing options, see systemd.exec(5)
+NoNewPrivileges=yes
+PrivateNetwork=yes
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectHome=yes
+ReadOnlyDirectories=/
+ReadWriteDirectories=/run/gitweb
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=apache2.service
