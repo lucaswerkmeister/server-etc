@@ -11,6 +11,8 @@ Restart=on-success
 RuntimeDirectory=%p
 # …and place the socket in that directory
 Environment=FCGI_SOCKET_PATH=%t/%p/gitweb
+# set UTF-8 locale
+Environment=LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 # don’t run gitweb as root…
 User=nobody
 # …but allow Apache to access gitweb’s socket…
