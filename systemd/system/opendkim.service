@@ -1,0 +1,44 @@
+[Unit]
+Description=OpenDKIM email sender authentication system
+Documentation=man:opendkim(8) man:opendkim.conf(5) http://www.opendkim.org/
+After=network.target nss-lookup.target
+
+[Service]
+RuntimeDirectory=opendkim
+Type=forking
+PIDFile=/run/opendkim/opendkim.pid
+User=opendkim
+ExecStart=/usr/sbin/opendkim
+Restart=on-failure
+ExecReload=/bin/kill -USR1 $MAINPID
+
+# not allowed to write anywhere
+ReadOnlyDirectories=/
+# ...except:
+# PidFile; cf. RuntimeDirectory=opendkim
+ReadWriteDirectories=/run/opendkim
+# TemporaryDirectory; cf. PrivateTmp=yes
+ReadWriteDirectories=/var/tmp
+# Socket
+ReadWriteDirectories=/var/spool/postfix/opendkim
+
+# custom /tmp, /var/tmp, /dev
+PrivateTmp=yes
+PrivateDevices=yes
+# read-only system directories
+ProtectSystem=full
+# no home at all
+ProtectHome=yes
+# no setuid, no sticky bit
+NoNewPrivileges=yes
+
+# only a few address families:
+# Socket for communication with sendmail
+RestrictAddressFamilies=AF_UNIX
+# IPv4 for DNS (_domainkey.domain)
+RestrictAddressFamilies=AF_INET
+# IPv6 for DNS (_domainkey.domain)
+RestrictAddressFamilies=AF_INET6
+
+[Install]
+WantedBy=multi-user.target
