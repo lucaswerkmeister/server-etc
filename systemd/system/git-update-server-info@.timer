@@ -1,9 +1,0 @@
-[Unit]
-Description=Update git server info for %I daily
-Documentation=man:git-update-server-info(1)
-
-[Timer]
-OnCalendar=daily
-
-[Install]
-WantedBy=timers.target
