@@ -56,6 +56,8 @@ smtpd_tls_auth_only = yes
 tls_random_source = dev:/dev/urandom
 html_directory = /usr/share/doc/postfix/html
 
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+
 # from http://arstechnica.com/information-technology/2014/03/taking-e-mail-back-part-2-arming-your-server-with-postfix-dovecot/2/
 smtpd_helo_required = yes
 smtpd_helo_restrictions = permit_mynetworks, permit
