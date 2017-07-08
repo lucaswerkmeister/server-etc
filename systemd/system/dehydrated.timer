@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly check and renew ACME TLS certificates
+
+[Timer]
+OnCalendar=weekly
+AccuracySec=1day
+Persistent=true
+
+[Install]
+WantedBy=timers.target

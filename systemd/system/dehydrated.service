@@ -1,0 +1,27 @@
+[Unit]
+Description=Check and renew ACME TLS certificates
+Documentation=man:dehydrated(1)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dehydrated --cron
+User=dehydrated
+RuntimeDirectory=dehydrated
+
+CapabilityBoundingSet=
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/dehydrated /run/dehydrated
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+MountFlags=slave
+NoNewPrivileges=yes
+SystemCallFilter=~@clock @cpu-emulation @debug @keyring @module @obsolete @privileged @raw-io @resources
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+ProtectKernelModules=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
