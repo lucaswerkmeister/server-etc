@@ -1,0 +1,37 @@
+[Unit]
+Description=SpamAssassin mail filter
+Documentation=man:spamass-milter(1)
+Wants=spamassassin.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/spamass-milter -f -p /var/spool/postfix/spamass/spamass.sock -P /run/spamass-milter/spamass-milter.pid -u spamass-milter -i 127.0.0.1 -I -m -- --socket=/var/spool/postfix/spamassassin/spamd.sock
+PIDFile=/run/spamass-milter/spamass-milter.pid
+# directory for spamass-milter to place the PIDFile in
+RuntimeDirectory=spamass-milter
+User=spamass-milter
+# /etc/init.d/spamass-milter stop sends signal 3, which is SIGQUIT according to kill -l
+KillSignal=SIGQUIT
+# make sure the socket spamass-milter creates (/var/spool/postfix/spamass/spamass.sock) is also accessible to postfix (member of spamass-milter group) via g+rwx
+UMask=0007
+
+CapabilityBoundingSet=
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectSystem=strict
+ReadWritePaths=/run/spamass-milter/ /var/spool/postfix/spamass/
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+MountFlags=slave
+NoNewPrivileges=yes
+SystemCallFilter=~@clock @cpu-emulation @debug @keyring @module @obsolete @privileged @raw-io @resources
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+ProtectKernelModules=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target

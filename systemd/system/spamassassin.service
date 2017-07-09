@@ -1,0 +1,33 @@
+[Unit]
+Description=SpamAssassin spam filter daemon
+Documentation=man:spamd(8p) man:spamassassin(1p)
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/spamd --daemonize --pidfile /run/spamassassin/spamassassin.pid --nouser-config --max-children 5 --helper-home-dir /var/lib/spamassassin --siteconfigpath /etc/spamassassin --listen /var/spool/postfix/spamassassin/spamd.sock --socketmode 0660
+ExecReload=/bin/kill -HUP $MAINPID
+# directory for spamassassin to place the PIDFile in
+RuntimeDirectory=spamassassin
+PIDFile=/run/spamassassin/spamassassin.pid
+User=spamd
+
+CapabilityBoundingSet=
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectSystem=strict
+ReadWritePaths=/run/spamassassin/ /var/spool/postfix/spamassassin/ /var/lib/spamassassin/.spamassassin/
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+MountFlags=slave
+NoNewPrivileges=yes
+SystemCallFilter=~@clock @cpu-emulation @debug @keyring @module @obsolete @privileged @raw-io @resources
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+ProtectKernelModules=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target
