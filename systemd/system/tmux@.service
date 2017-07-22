@@ -8,5 +8,13 @@ ExecStart=/usr/bin/tmux -2 -u new-session -d
 ExecStop=/usr/bin/tmux kill-server
 WorkingDirectory=~
 
+# Make sure I don’t accidentally edit dpkg-managed files in /usr.
+# To make `apt` still work, place this /bin/sh script in `/usr/local/bin/apt`:
+# exec systemd-run -qt /usr/bin/apt "$@"
+ProtectSystem=yes
+# /usr/local is an exception, that contains local stuff under my own control.
+# (It really shouldn’t be under /usr, but that’s where it is.)
+ReadWritePaths=/usr/local
+
 [Install]
 WantedBy=multi-user.target
