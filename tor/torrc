@@ -145,7 +145,23 @@ RelayBandwidthRate 4 MB
 #ContactInfo Random Person <nobody AT example dot com>
 ## You might also include your PGP or GPG fingerprint if you have one:
 #ContactInfo 0xFFFFFFFF Random Person <nobody AT example dot com>
-ContactInfo Lucas Werkmeister "6B89 5B8B 11A4 75B1 EC93  1698 FC46 2872 72AE 323F" <mail@lucaswerkmeister.de>
+#ContactInfo Lucas Werkmeister "6B89 5B8B 11A4 75B1 EC93  1698 FC46 2872 72AE 323F" <mail@lucaswerkmeister.de>
+ContactInfo Lucas Werkmeister\
+ email:mail[]lucaswerkmeister.de\
+ operatorurl:https://lucaswerkmeister.de\
+ pgp:6B895B8B11A475B1EC931698FC46287272AE323F\
+ keybase:lucaswerkmeister\
+ twitter:LucasWerkmeistr\
+ hosterurl:https://www.hetzner.de/\
+ cost:23.68EUR\
+ trafficacct:10\
+ memory:7987\
+ virtualization:kvm\
+ offlinemasterkey:n\
+ scheduler:default\
+ os:debian/9\
+ tls:openssl\
+ confmgmt:manual
 
 ## Uncomment this to mirror directory information for others. Please do
 ## if you have enough bandwidth.
