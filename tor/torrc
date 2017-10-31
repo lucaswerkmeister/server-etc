@@ -243,3 +243,5 @@ ExitPolicy reject *:* # no exits allowed
 #%include /etc/torrc.d/
 #%include /etc/torrc.custom
 
+## https://www.torproject.org/docs/tor-manual.html.en#Sandbox
+Sandbox 1
