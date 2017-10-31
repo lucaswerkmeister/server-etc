@@ -152,12 +152,14 @@ ContactInfo Lucas Werkmeister\
  pgp:6B895B8B11A475B1EC931698FC46287272AE323F\
  keybase:lucaswerkmeister\
  twitter:LucasWerkmeistr\
- hosterurl:https://www.hetzner.de/\
+ hoster:www.hetzner.com\
  cost:23.68EUR\
- trafficacct:10\
+ uplinkbw:1000\
+ trafficacct:10240\
  memory:7987\
  virtualization:kvm\
  offlinemasterkey:n\
+ sandbox:y\
  scheduler:default\
  os:debian/9\
  tls:openssl\
