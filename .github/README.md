@@ -42,7 +42,7 @@ in which case, if I understand correctly,
 you don’t need any license to just take them and use them as you see fit.
 Of course, it’s still a good idea to record where you got them from
 (e. g. via a comment), not just for attribution
-but also so yo can refer back to the source for questions or future updates.
+but also so you can refer back to the source for questions or future updates.
 
 If you want to use anything in this repository
 and your situation requires some license,
