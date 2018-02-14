@@ -2,7 +2,7 @@
 require "fileinto";
 require "imap4flags";
 
-if header :is "List-Id" "\"Discussion list for the Wikidata project.\" <wikidata.lists.wikimedia.org>" {
+if header :is "List-Id" "Discussion list for the Wikidata project <wikidata.lists.wikimedia.org>" {
     fileinto "Wikimedia/Wikidata";
 }
 if header :is "List-Id" "Wikidata technical discussion <wikidata-tech.lists.wikimedia.org>" {
