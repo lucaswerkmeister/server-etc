@@ -21,7 +21,8 @@ if header :is "List-Id" "Mailing-list of the attendees of WikidataCon 2017 <2017
 if header :is "List-Id" "<git.vger.kernel.org>" {
     if allof(not header :is "To" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
              not header :is "Cc" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
-             not header :matches "Subject" "What's cooking in git.git *") {
+             not header :matches "Subject" "What's cooking in git.git *",
+             not header :matches "Subject" "[ANNOUNCE] *") {
         addflag "\\Seen";
     }
     fileinto "git";
