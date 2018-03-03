@@ -39,6 +39,15 @@ if header :is "List-Id" "Secure Desktops <desktops.secure-os.org>" {
     fileinto "secure-desktops";
 }
 
+if header :is "List-Id" "LilyPond user discussion <lilypond-user.gnu.org>" {
+    if allof(not header :is "To" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
+             not header :is "Cc" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
+             not header :matches "Subject" "[ANNOUNCE] *") {
+        addflag "\\Seen";
+    }
+    fileinto "lilypond-user";
+}
+
 if header :is "List-Id" "<cacert.lists.cacert.org>" {
     fileinto "cacert";
 }
