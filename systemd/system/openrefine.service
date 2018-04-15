@@ -4,6 +4,7 @@ Documentation=http://openrefine.org/
 
 [Service]
 ExecStart=/opt/openrefine-2.8/refine -d %S/%p -x refine.headless=true
+KillSignal=SIGINT
 DynamicUser=yes
 NoNewPrivileges=yes
 StateDirectory=%p
