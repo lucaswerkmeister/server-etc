@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenRefine data reconciliation tool
+Documentation=http://openrefine.org/
+
+[Service]
+ExecStart=/opt/openrefine-%i/refine -d %S/%p-%i -x refine.headless=true
+KillSignal=SIGINT
+DynamicUser=yes
+NoNewPrivileges=yes
+StateDirectory=%p-%i
