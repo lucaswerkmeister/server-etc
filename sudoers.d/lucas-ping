@@ -1,0 +1,2 @@
+# Allow lucas to flood ping without a password
+lucas ALL=(ALL) NOPASSWD: /bin/ping
