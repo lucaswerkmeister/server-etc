@@ -1,2 +1,3 @@
 # Allow lucas to reset the "failed" status of certain units without a password
 lucas ALL=(ALL) NOPASSWD: /bin/systemctl reset-failed git@*.service
+lucas ALL=(ALL) NOPASSWD: /bin/systemctl reset-failed git@\*
