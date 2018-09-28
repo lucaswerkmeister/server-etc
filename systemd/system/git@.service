@@ -15,6 +15,7 @@ NoNewPrivileges=yes
 PrivateDevices=yes
 ProtectHome=yes
 PrivateNetwork=yes
+IPAddressDeny=any
 PrivateTmp=yes
 ProtectControlGroups=yes
 ProtectKernelModules=yes
