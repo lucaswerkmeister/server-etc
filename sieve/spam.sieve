@@ -2,7 +2,6 @@
 require "envelope";
 require "fileinto";
 require "imap4flags";
-require "regex";
 
 # If someone pretends to send from my address but isn’t,
 # file it into spam regardless of spam level
