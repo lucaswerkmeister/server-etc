@@ -101,3 +101,6 @@ smtp_tls_note_starttls_offer = yes
 smtp_tls_security_level = may
 
 smtp_address_preference = ipv4
+
+# 25 MiB, matching Gmail
+max_message_size = 26214400
