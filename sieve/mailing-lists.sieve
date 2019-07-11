@@ -32,6 +32,9 @@ if header :is "List-Id" "MediaWiki API announcements <mediawiki-api-announce.lis
 if header :is "List-Id" "MediaWiki API announcements & discussion <mediawiki-api.lists.wikimedia.org>" {
     fileinto "Wikimedia/MediaWiki API";
 }
+if header :is "List-Id" "\"Wikimania general list \\(open subscription\\)\" <wikimania-l.lists.wikimedia.org>" {
+    fileinto "Wikimedia/Wikimania";
+}
 
 if header :is "List-Id" "<git.vger.kernel.org>" {
     if allof(not header :is "To" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
