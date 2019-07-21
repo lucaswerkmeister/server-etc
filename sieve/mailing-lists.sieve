@@ -75,6 +75,10 @@ if header :is "List-Id" "Mailing list for VLC media player developers <vlc-devel
     fileinto "vlc-devel";
 }
 
+if header :is "Mailing-List" "contact tarsnap-announce-help@tarsnap.com; run by ezmlm" {
+    fileinto "tarsnap-announce";
+}
+
 if header :is "List-Id" "<cacert.lists.cacert.org>" {
     fileinto "cacert";
 }
