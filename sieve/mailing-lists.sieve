@@ -20,6 +20,9 @@ if header :is "List-Id" "<wikicite-discuss.wikimedia.org>" {
 if header :is "List-Id" "Mailing-list of the attendees of WikidataCon 2017 <2017_wikidatacon.org.ml06.ispgateway.de>" {
     fileinto "Wikimedia/WikidataCon/2017";
 }
+if header :is "List-Id" "<wikidatacon2019.wikimedia.de>" {
+    fileinto "Wikimedia/WikidataCon/2019";
+}
 if header :is "List-Id" "Wikimedia Mailing List <wikimedia-l.lists.wikimedia.org>" {
     fileinto "Wikimedia/Wikimedia";
 }
