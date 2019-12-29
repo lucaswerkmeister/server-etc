@@ -85,6 +85,10 @@ if header :is "Mailing-List" "contact tarsnap-announce-help@tarsnap.com; run by 
     fileinto "tarsnap-announce";
 }
 
+if header :is "Mailing-List" "contact translate-help@lists.ccc.de; run by ezmlm" {
+    fileinto "c3lingo";
+}
+
 if header :is "List-Id" "<cacert.lists.cacert.org>" {
     fileinto "cacert";
 }
