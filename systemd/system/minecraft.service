@@ -1,0 +1,18 @@
+[Unit]
+Description=Minecraft server
+# not enough CPU to run Tor or Superperm at the same time
+Conflicts=tor@default.service superperm.service
+
+[Service]
+Type=simple
+ExecStart=java -Xmx1024M -Xms1024M -jar minecraft_server.1.15.2.jar nogui
+WorkingDirectory=/opt/minecraft
+User=minecraft
+SuccessExitStatus=143
+
+NoNewPrivileges=true
+PrivateDevices=yes
+ProtectHome=yes
+PrivateTmp=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+SystemCallFilter=@system-service
