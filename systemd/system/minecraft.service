@@ -1,7 +1,7 @@
 [Unit]
 Description=Minecraft server
-# not enough CPU to run Tor or Superperm at the same time
-Conflicts=tor@default.service superperm.service
+# Superperm eats up all available CPU time, don’t run that at the same time
+Conflicts=superperm.service
 
 [Service]
 Type=simple
@@ -16,3 +16,6 @@ ProtectHome=yes
 PrivateTmp=yes
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 SystemCallFilter=@system-service
+
+[Install]
+WantedBy=multi-user.target
