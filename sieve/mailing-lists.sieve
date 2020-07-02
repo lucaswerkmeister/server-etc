@@ -41,6 +41,9 @@ if header :is "List-Id" "\"Wikimania general list \\(open subscription\\)\" <wik
 if header :is "List-Id" "Increasing involvement of LGBT+ communities and organizing the Wikimedia LGBT+ User Group <lgbt.lists.wikimedia.org>" {
     fileinto "Wikimedia/LGBT+";
 }
+if header :is "List-Id" "\"General public mailing list for the discussion of Abstract Wikipedia \\(aka Wikilambda\\)\" <abstract-wikipedia.lists.wikimedia.org>" {
+    fileinto "Wikimedia/Abstract Wikipedia";
+}
 
 if header :is "List-Id" "<git.vger.kernel.org>" {
     if allof(not header :is "To" "Lucas Werkmeister <mail@lucaswerkmeister.de>",
