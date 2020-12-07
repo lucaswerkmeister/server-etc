@@ -7,20 +7,18 @@ ExecStart=/usr/local/bin/git daemon --inetd --log-destination=stderr --verbose -
 StandardInput=socket
 StandardOutput=socket
 StandardError=journal
-User=nobody
+DynamicUser=yes
 
 # sandboxing options, see systemd.exec(5)
 MemoryDenyWriteExecute=yes
-NoNewPrivileges=yes
 PrivateDevices=yes
+# DynamicUser=yes only implies DynamicHome=read-only
 ProtectHome=yes
 PrivateNetwork=yes
 IPAddressDeny=any
-PrivateTmp=yes
 ProtectControlGroups=yes
 ProtectKernelModules=yes
 ProtectKernelTunables=yes
-ProtectSystem=strict
 RestrictAddressFamilies=AF_UNIX
 RestrictNamespaces=yes
 RestrictRealtime=yes
