@@ -113,3 +113,7 @@ if header :is "List-Id" "<phoenix.lists.cacert-phoenix.org>" {
 if header :is "List-Id" "<cacert-support.lists.cacert.org>" {
     fileinto "cacert/support";
 }
+
+if header :is "List-Id" "A list for testing <test.lists-next.wikimedia.org>" {
+    fileinto "Wikimedia/Mailman 3 testing/Test";
+}
