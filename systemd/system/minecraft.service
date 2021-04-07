@@ -1,7 +1,5 @@
 [Unit]
 Description=Minecraft server
-# Superperm eats up all available CPU time, don’t run that at the same time
-Conflicts=superperm.service
 
 [Service]
 Type=simple
