@@ -1,0 +1,4 @@
+[Definition]
+
+# log to journal
+logtarget = STDOUT
