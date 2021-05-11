@@ -19,21 +19,29 @@ Group=www-data
 UMask=0002
 
 # sandboxing options, see systemd.exec(5)
+CapabilityBoundingSet=
+LockPersonality=yes
 MemoryDenyWriteExecute=yes
 NoNewPrivileges=yes
 PrivateDevices=yes
-ProtectHome=yes
 PrivateNetwork=yes
 PrivateTmp=yes
+ProtectClock=yes
 ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
 ProtectKernelModules=yes
 ProtectKernelTunables=yes
+ProtectProc=invisible
 ProtectSystem=strict
 ReadWritePaths=/run/gitweb
 RestrictAddressFamilies=AF_UNIX
 RestrictNamespaces=yes
 RestrictRealtime=yes
+RestrictSUIDSGID=yes
 SystemCallArchitectures=native
+SystemCallFilter=@system-service
 
 [Install]
 WantedBy=apache2.service
