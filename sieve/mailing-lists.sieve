@@ -35,7 +35,7 @@ if header :is "List-Id" "MediaWiki API announcements <mediawiki-api-announce.lis
 if header :is "List-Id" "MediaWiki API announcements & discussion <mediawiki-api.lists.wikimedia.org>" {
     fileinto "Wikimedia/MediaWiki API";
 }
-if header :is "List-Id" "\"Wikimania general list \\(open subscription\\)\" <wikimania-l.lists.wikimedia.org>" {
+if header :is "List-Id" "\"Wikimania general list (open subscription)\" <wikimania-l.lists.wikimedia.org>" {
     fileinto "Wikimedia/Wikimania";
 }
 if header :is "List-Id" "Increasing involvement of LGBT+ communities and organizing the Wikimedia LGBT+ User Group <lgbt.lists.wikimedia.org>" {
