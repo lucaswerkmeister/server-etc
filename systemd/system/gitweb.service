@@ -12,7 +12,7 @@ RuntimeDirectory=%p
 # …and place the socket in that directory
 Environment=FCGI_SOCKET_PATH=%t/%p/gitweb
 # don’t run gitweb as root…
-User=nobody
+User=gitweb
 # …but allow Apache to access gitweb’s socket…
 Group=www-data
 # …by making that socket group-writable as well
@@ -36,6 +36,7 @@ ProtectKernelTunables=yes
 ProtectProc=invisible
 ProtectSystem=strict
 ReadWritePaths=/run/gitweb
+RemoveIPC=yes
 RestrictAddressFamilies=AF_UNIX
 RestrictNamespaces=yes
 RestrictRealtime=yes
