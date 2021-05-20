@@ -32,7 +32,7 @@ if header :is "List-Id" "Announcements and reports of the Wikimedia movement <wi
 if header :is "List-Id" "MediaWiki API announcements <mediawiki-api-announce.lists.wikimedia.org>" {
     fileinto "Wikimedia/MediaWiki API Announce";
 }
-if header :is "List-Id" "MediaWiki API announcements & discussion <mediawiki-api.lists.wikimedia.org>" {
+if header :is "List-Id" "MediaWiki API announcements  & discussion <mediawiki-api.lists.wikimedia.org>" {
     fileinto "Wikimedia/MediaWiki API";
 }
 if header :is "List-Id" "\"Wikimania general list (open subscription)\" <wikimania-l.lists.wikimedia.org>" {
