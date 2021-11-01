@@ -4,7 +4,7 @@ Documentation=man:gitweb(1) man:gitweb.conf(5)
 Before=apache2.service
 
 [Service]
-ExecStart=/usr/local/bin/gitweb.cgi --fastcgi
+ExecStart=/usr/share/gitweb/gitweb.cgi --fastcgi
 # gitweb kills itself every 100 requests (I think), expects to be restarted externally
 Restart=on-success
 # create a directory that gitweb can write to…
