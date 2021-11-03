@@ -18,6 +18,7 @@ ProtectHome=yes
 PrivateTmp=yes
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 SystemCallFilter=@system-service
+CapabilityBoundingSet=
 
 [Install]
 WantedBy=multi-user.target
