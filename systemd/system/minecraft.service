@@ -12,13 +12,24 @@ User=minecraft
 SuccessExitStatus=143
 SyslogIdentifier=minecraft
 
+CapabilityBoundingSet=
+LockPersonality=yes
 NoNewPrivileges=true
 PrivateDevices=yes
-ProtectHome=yes
 PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RemoveIPC=yes
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
-SystemCallFilter=@system-service
-CapabilityBoundingSet=
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service ~@privileged
 
 [Install]
 WantedBy=multi-user.target
