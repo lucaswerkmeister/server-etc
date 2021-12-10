@@ -12,7 +12,7 @@ DynamicUser=yes
 # sandboxing options, see systemd.exec(5)
 MemoryDenyWriteExecute=yes
 PrivateDevices=yes
-# DynamicUser=yes only implies DynamicHome=read-only
+# DynamicUser=yes only implies ProtectHome=read-only
 ProtectHome=yes
 PrivateNetwork=yes
 IPAddressDeny=any
