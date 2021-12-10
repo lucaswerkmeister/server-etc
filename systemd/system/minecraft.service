@@ -14,10 +14,12 @@ SuccessExitStatus=143
 SyslogIdentifier=minecraft
 
 CapabilityBoundingSet=
+DevicePolicy=closed
 LockPersonality=yes
 NoNewPrivileges=true
 PrivateDevices=yes
 PrivateTmp=yes
+PrivateUsers=yes
 ProtectClock=yes
 ProtectControlGroups=yes
 ProtectHome=yes
@@ -25,11 +27,13 @@ ProtectHostname=yes
 ProtectKernelLogs=yes
 ProtectKernelModules=yes
 ProtectKernelTunables=yes
+ProtectProc=invisible
 ProtectSystem=strict
 RemoveIPC=yes
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 RestrictNamespaces=yes
 RestrictRealtime=yes
+RestrictSUIDSGID=yes
 SystemCallArchitectures=native
 SystemCallFilter=@system-service ~@privileged
 
