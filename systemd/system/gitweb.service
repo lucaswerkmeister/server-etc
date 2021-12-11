@@ -21,7 +21,7 @@ UMask=0002
 # sandboxing options, see systemd.exec(5)
 CapabilityBoundingSet=
 LockPersonality=yes
-MemoryDenyWriteExecute=yes
+# MemoryDenyWriteExecute=yes git grep uses PCRE2 JIT and doesn’t handle errors well :(
 NoNewPrivileges=yes
 PrivateDevices=yes
 PrivateNetwork=yes
