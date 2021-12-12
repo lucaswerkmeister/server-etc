@@ -18,8 +18,8 @@ PrivateDevices=yes
 PrivateNetwork=yes
 PrivateUsers=yes
 ProtectClock=yes
-# DynamicUser=yes only implies ProtectHome=read-only
 ProtectControlGroups=yes
+# DynamicUser=yes only implies ProtectHome=read-only
 ProtectHome=yes
 ProtectHostname=yes
 ProtectKernelLogs=yes
