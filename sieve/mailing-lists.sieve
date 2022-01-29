@@ -24,6 +24,7 @@ if header :is "List-Id" "<wikidatacon2019.wikimedia.de>" {
     fileinto "Wikimedia/WikidataCon/2019";
 }
 if header :is "List-Id" "Wikimedia Mailing List <wikimedia-l.lists.wikimedia.org>" {
+    addflag "\\Seen";
     fileinto "Wikimedia/Wikimedia";
 }
 if header :is "List-Id" "Announcements and reports of the Wikimedia movement <wikimediaannounce-l.lists.wikimedia.org>" {
