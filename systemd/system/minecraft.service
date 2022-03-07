@@ -37,6 +37,7 @@ RestrictSUIDSGID=yes
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
 SystemCallFilter=~@privileged
+TemporaryFileSystem=/var /run
 
 [Install]
 WantedBy=multi-user.target
