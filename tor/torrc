@@ -18,6 +18,7 @@
 #SOCKSPort 9050 # Default: Bind to localhost:9050 for local connections.
 #SOCKSPort 192.168.0.1:9100 # Bind to this adddress:port too.
 SOCKSPort 0
+# systemd: adjust SocketBindAllow= when changing this
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## First entry that matches wins. If no SOCKSPolicy is set, we accept
@@ -83,6 +84,7 @@ DataDirectory /var/lib/tor
 
 ## Required: what port to advertise for incoming Tor connections.
 ORPort 9001
+# systemd: adjust SocketBindAllow= when changing this
 ## If you want to listen on a port other than the one advertised in
 ## ORPort (e.g. to advertise 443 but bind to 9090), you can do it as
 ## follows.  You'll need to do ipchains or other port forwarding
@@ -176,6 +178,7 @@ ContactInfo Lucas Werkmeister\
 ## Uncomment this to mirror directory information for others. Please do
 ## if you have enough bandwidth.
 DirPort 9030 # what port to advertise for directory connections
+# systemd: adjust SocketBindAllow= when changing this
 ## If you want to listen on a port other than the one advertised in
 ## DirPort (e.g. to advertise 80 but bind to 9091), you can do it as
 ## follows.  below too. You'll need to do ipchains or other port
