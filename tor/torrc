@@ -83,7 +83,6 @@ DataDirectory /var/lib/tor
 
 ## Required: what port to advertise for incoming Tor connections.
 ORPort 9001
-ORPort [2a01:4f8:140:2459::2]:9001
 ## If you want to listen on a port other than the one advertised in
 ## ORPort (e.g. to advertise 443 but bind to 9090), you can do it as
 ## follows.  You'll need to do ipchains or other port forwarding
