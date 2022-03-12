@@ -32,3 +32,4 @@ RestrictRealtime=yes
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
 SystemCallFilter=~@privileged @resources
+TemporaryFileSystem=/var /run
