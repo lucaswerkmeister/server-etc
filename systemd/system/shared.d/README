@@ -1,0 +1,2 @@
+This directory contains drop-in files that can be shared
+between different systemd units.
