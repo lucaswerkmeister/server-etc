@@ -96,6 +96,7 @@ ORPort 9001
 ## relay. Leave commented out and Tor will guess.
 #Address noname.example.com
 Address 46.4.66.178
+Address [2a01:4f8:140:2459::2]
 
 ## If you have multiple network interfaces, you can specify one for
 ## outgoing traffic to use.
