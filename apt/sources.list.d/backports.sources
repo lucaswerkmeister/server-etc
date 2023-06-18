@@ -1,0 +1,4 @@
+Types: deb deb-src
+URIs: http://ftp.de.debian.org/debian/
+Suites: bookworm-backports
+Components: main
