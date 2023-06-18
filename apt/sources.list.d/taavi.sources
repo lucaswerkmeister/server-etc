@@ -1,5 +1,5 @@
 Types: deb deb-src
 URIs: https://apt.taavi.wtf
-Suites: bookworm
+Suites: bookworm bullseye
 Components: main
 Signed-By: /usr/share/keyrings/taavi-apt.asc
