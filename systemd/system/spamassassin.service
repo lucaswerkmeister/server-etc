@@ -9,7 +9,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 # directory for spamassassin to place the PIDFile in
 RuntimeDirectory=spamassassin
 PIDFile=/run/spamassassin/spamassassin.pid
-User=spamd
+User=debian-spamd
 
 CapabilityBoundingSet=
 PrivateTmp=yes
