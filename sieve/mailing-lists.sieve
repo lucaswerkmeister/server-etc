@@ -46,7 +46,12 @@ if header :is "List-Id" "General public mailing list for the discussion of Abstr
     fileinto "Wikimedia/Abstract Wikipedia";
 }
 if header :is "List-Id" "Wikitech-l <wikitech-l.lists.wikimedia.org>" {
+    addflag "\\Seen";
     fileinto "Wikimedia/Wikitech";
+}
+if header :is "List-Id" "Wikimedia Cloud Services general discussion and support <cloud.lists.wikimedia.org>" {
+    addflag "\\Seen";
+    fileinto "Wikimedia/Cloud";
 }
 
 if header :is "List-Id" "<git.vger.kernel.org>" {
