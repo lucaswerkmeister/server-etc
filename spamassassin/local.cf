@@ -110,3 +110,7 @@ ifplugin Mail::SpamAssassin::Plugin::Shortcircuit
 # shortcircuit BAYES_00                ham
 
 endif # Mail::SpamAssassin::Plugin::Shortcircuit
+
+# use local Unbound, not general host DNS server(s),
+# in order to avoid being blocked by URIBL <https://uribl.com/refused.shtml>
+dns_server 127.0.0.1

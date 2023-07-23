@@ -1,6 +1,7 @@
 [Unit]
 Description=SpamAssassin spam filter daemon
 Documentation=man:spamd(8p) man:spamassassin(1p)
+Wants=unbound.service
 
 [Service]
 Type=forking
