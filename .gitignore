@@ -1,6 +1,9 @@
 /*
+!/.github/
 !/apache2/
 !/dovecot/
 !/fail2ban/
 !/spamassassin/
+!/thelounge/
+!/tmpfiles.d/
 !/unbound/
