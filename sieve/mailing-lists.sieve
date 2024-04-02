@@ -8,7 +8,7 @@ if header :is "List-Id" "Discussion list for the Wikidata project <wikidata.list
 if header :is "List-Id" "Wikidata technical discussion <wikidata-tech.lists.wikimedia.org>" {
     fileinto "Wikimedia/Wikidata-Tech";
 }
-if header :is "List-Id" "Wikibase Community User Group <wikibaseug.lists.wikimedia.org>" {
+if header :is "List-Id" "\"Forum for Wikibase users running installs from source, or containerised. Home to the WMF-affiliated user group - also on Telegram: https://t.me/joinchat/HGjGexZ9NE7BwpXzMsoDLA\" <wikibaseug.lists.wikimedia.org>" {
     fileinto "Wikimedia/Wikibase";
 }
 if header :is "List-Id" "Pywikibot discussion list <pywikibot.lists.wikimedia.org>" {
