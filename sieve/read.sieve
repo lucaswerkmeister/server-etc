@@ -11,3 +11,8 @@ if allof(header :is "To" "\"Lucas Werkmeister CI\" <wikimediaci@lucaswerkmeister
          header :is "Subject" "Login to Wikipedia as Lucas Werkmeister CI from a device you have not recently used") {
     addflag "\\Seen";
 }
+
+if allof(header :is "To" "\"Lucas Werkmeister CI\" <wikimediaci@lucaswerkmeister.de>",
+         header :is "Subject" "Login to Beta Wikimedia Commons as Lucas Werkmeister CI from a device you have not recently used") {
+    addflag "\\Seen";
+}
