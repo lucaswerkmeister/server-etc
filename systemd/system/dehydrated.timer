@@ -1,8 +1,9 @@
 [Unit]
-Description=Weekly check and renew ACME TLS certificates
+Description=Regularly check and renew ACME TLS certificates
 
 [Timer]
-OnCalendar=weekly
+# a bit more often than weekly (certificates are renewed when they are valid for < 30 days)
+OnCalendar=*-*-1,5,9,13,17,21,25,29
 AccuracySec=1day
 Persistent=true
 
