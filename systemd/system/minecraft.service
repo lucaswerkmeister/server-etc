@@ -38,6 +38,7 @@ SocketBindAllow=tcp:25565
 SocketBindDeny=any
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
+# note: @resources is needed, Minecraft calls syscall 141 (setpriority(2)) on startup
 SystemCallFilter=~@privileged
 TemporaryFileSystem=/var /run
 
