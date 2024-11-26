@@ -1,0 +1,43 @@
+[Unit]
+Description=Back up /var/mail/vmail/lucaswerkmeister.de
+
+[Service]
+Type=oneshot
+ExecStart=-rm -r /var/mail/vmail/lucaswerkmeister.de-backup-%i
+ExecStart=cp -a /var/mail/vmail/lucaswerkmeister.de /var/mail/vmail/lucaswerkmeister.de-backup-%i
+User=vmail
+
+# specific sandboxing
+ReadWritePaths=/var/mail/vmail/
+ReadOnlyPaths=/var/mail/vmail/lucaswerkmeister.de/
+RestrictSUIDSGID=no
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallFilter=@chown
+
+# general sandboxing
+CapabilityBoundingSet=
+DevicePolicy=closed
+IPAddressDeny=any
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+PrivateTmp=yes
+PrivateUsers=yes
+ProcSubset=pid
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+ProtectSystem=strict
+RemoveIPC=yes
+RestrictAddressFamilies=none
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
