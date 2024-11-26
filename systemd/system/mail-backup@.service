@@ -6,6 +6,8 @@ Type=oneshot
 ExecStart=-rm -r /var/mail/vmail/lucaswerkmeister.de-backup-%i
 ExecStart=cp -a /var/mail/vmail/lucaswerkmeister.de /var/mail/vmail/lucaswerkmeister.de-backup-%i
 User=vmail
+Nice=15
+IOSchedulingPriority=6
 
 # specific sandboxing
 ReadWritePaths=/var/mail/vmail/
