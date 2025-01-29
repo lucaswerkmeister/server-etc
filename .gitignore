@@ -1,6 +1,7 @@
 /*
 !/.github/
 !/apache2/
+!/dehydrated/
 !/dovecot/
 !/fail2ban/
 !/spamassassin/
