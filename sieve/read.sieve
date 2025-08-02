@@ -1,5 +1,4 @@
 # compile with `sievec` when done
-require "fileinto";
 require "imap4flags";
 
 if anyof(header :is "X-Jenkins-Job" "ceylon-distribution-tests",
@@ -19,5 +18,10 @@ if allof(header :is "To" "\"Lucas Werkmeister CI\" <wikimediaci@lucaswerkmeister
 
 if allof(header :is "To" "\"Lucas Werkmeister CI\" <wikimediaci@lucaswerkmeister.de>",
          header :is "Subject" "Login to Beta Wikimedia Commons as Lucas Werkmeister CI from a device you have not recently used") {
+    addflag "\\Seen";
+}
+
+if allof(header :is "To" "tools.admin@toolforge.org",
+         header :is "Subject" "[Toolforge] [admin] notification about job updatetools") {
     addflag "\\Seen";
 }
