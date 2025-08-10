@@ -15,7 +15,7 @@ append_dot_mydomain = no
 # Uncomment the next line to generate "delayed mail" warnings
 #delay_warning_time = 4h
 
-readme_directory = no
+#readme_directory = /usr/share/doc/postfix
 
 # TLS parameters
 smtpd_use_tls = yes
@@ -109,3 +109,4 @@ message_size_limit = 26214400
 smtpd_data_restrictions = reject_unauth_pipelining
 smtpd_forbid_unauth_pipelining = yes
 smtpd_forbid_bare_newline = yes
+cyrus_sasl_config_path = /etc/postfix/sasl
