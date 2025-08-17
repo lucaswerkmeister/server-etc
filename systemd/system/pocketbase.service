@@ -1,0 +1,42 @@
+[Unit]
+Description=Pocketbase (for Wanderer)
+Documentation=https://pocketbase.io/
+Requires=pocketbase-meilisearch-proxy.socket
+After=pocketbase-meilisearch-proxy.socket
+
+[Service]
+ExecStart=bash -c 'POCKETBASE_ENCRYPTION_KEY="$(<%d/pocketbase-encryption-key)" MEILI_MASTER_KEY="$(<%d/meili-master-key)" exec /opt/wanderer-build/pocketbase serve --dir .'
+# the pocketbase-encryption-key credential comes from shared.d/pocketbase-encryption-key.conf
+# the meili-master-key credential comes from shared.d/meili-master-key.conf
+# pocketbase-meilisearch-proxy.socket + meilisearch-proxy.service proxies port 7700 from pocketbase’s network namespace into meilisearch’s
+Environment=MEILI_URL=http://localhost:7700
+StateDirectory=%N
+WorkingDirectory=%S/%N
+SyslogIdentifier=%N
+BindReadOnlyPaths=/home/lucas/git/wanderer/db/migrations:%S/%N/migrations
+BindReadOnlyPaths=/home/lucas/git/wanderer/db/templates:%S/%N/templates
+
+CapabilityBoundingSet=
+DynamicUser=yes
+IPAddressAllow=localhost
+IPAddressDeny=any
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+# pocketbase-proxy.{service,socket} proxies port 8090 into the private network
+PrivateNetwork=yes
+PrivateUsers=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged

@@ -1,0 +1,37 @@
+[Unit]
+Description=Proxy port 8090 to Pocketbase (for Wanderer)
+Documentation=man:systemd-socket-proxyd(8)
+Requires=pocketbase.service
+After=pocketbase.service
+Requires=pocketbase-proxy.socket
+After=pocketbase-proxy.socket
+JoinsNamespaceOf=pocketbase.service
+
+[Service]
+Type=notify
+ExecStart=/usr/lib/systemd/systemd-socket-proxyd 127.0.0.1:8090
+PrivateNetwork=yes
+
+CapabilityBoundingSet=
+DynamicUser=yes
+IPAddressAllow=localhost
+IPAddressDeny=any
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProcSubset=pid
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@resources @privileged

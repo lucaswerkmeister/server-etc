@@ -1,0 +1,12 @@
+[Unit]
+Description=Proxy port 7700 from Pocketbase’s namespace to Meilisearch (for Wanderer)
+Documentation=man:systemd-socket-proxyd(8)
+JoinsNamespaceOf=pocketbase.service
+
+[Socket]
+ListenStream=127.0.0.1:7700
+PrivateNetwork=yes
+Service=meilisearch-proxy.service
+
+[Install]
+WantedBy=sockets.target

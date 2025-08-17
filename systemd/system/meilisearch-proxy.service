@@ -1,0 +1,38 @@
+[Unit]
+Description=Proxy port 7700 to Meilisearch (for Wanderer)
+Documentation=man:systemd-socket-proxyd(8)
+Requires=meilisearch.service
+After=meilisearch.service
+Requires=meilisearch-proxy.socket
+After=meilisearch-proxy.socket
+JoinsNamespaceOf=meilisearch.service
+
+[Service]
+Type=notify
+ExecStart=/usr/lib/systemd/systemd-socket-proxyd 127.0.0.1:7700
+PrivateNetwork=yes
+
+CapabilityBoundingSet=
+DynamicUser=yes
+IPAddressAllow=localhost
+IPAddressDeny=any
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProcSubset=pid
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+# AF_UNIX for sd_notify(3) (required for Type=notify above)
+RestrictAddressFamilies=AF_INET AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@resources @privileged

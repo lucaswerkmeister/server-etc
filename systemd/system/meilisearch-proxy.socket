@@ -1,0 +1,9 @@
+[Unit]
+Description=Proxy port 7700 to Meilisearch (for Wanderer)
+Documentation=man:systemd-socket-proxyd(8)
+
+[Socket]
+ListenStream=127.0.0.1:7700
+
+[Install]
+WantedBy=sockets.target
