@@ -1,0 +1,9 @@
+[Unit]
+Description=Wanderer (self-hosted trail database on the Fediverse) socket
+Documentation=https://wanderer.to/
+
+[Socket]
+ListenStream=127.0.0.1:3000
+
+[Install]
+WantedBy=sockets.target

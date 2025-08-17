@@ -1,0 +1,39 @@
+[Unit]
+Description=Wanderer (self-hosted trail database on the Fediverse)
+Documentation=https://wanderer.to/
+Requires=meilisearch-proxy.socket
+After=meilisearch-proxy.socket
+
+[Service]
+ExecStart=node index.js
+Environment=MEILI_URL=http://localhost:7700
+Environment=ORIGIN=https://wanderer.lucaswerkmeister.de
+Environment=PUBLIC_DISABLE_SIGNUP=true
+Environment=PUBLIC_NOMINATIM_URL=https://nominatim.openstreetmap.org
+Environment=PUBLIC_OVERPASS_API_URL=https://overpass-api.de
+# PocketBase does not need to be “public” in the sense of reachable from browsers; compare https://wikis.world/@LucasWerkmeister/115995310313305832
+Environment=PUBLIC_POCKETBASE_URL=http://localhost:8090
+Environment=PUBLIC_VALHALLA_URL=https://valhalla1.openstreetmap.de
+WorkingDirectory=/opt/wanderer-build/web
+SyslogIdentifier=%N
+
+CapabilityBoundingSet=
+DynamicUser=yes
+LockPersonality=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SocketBindDeny=any
+SystemCallArchitectures=native
+SystemCallFilter=@pkey @system-service
+SystemCallFilter=~@privileged

@@ -1,0 +1,56 @@
+[Unit]
+Description=Pocketbase (for Wanderer)
+Documentation=https://pocketbase.io/
+Requires=meilisearch-proxy.socket
+After=meilisearch-proxy.socket
+
+[Service]
+ExecStart=bash -c 'POCKETBASE_ENCRYPTION_KEY="$(<%d/pocketbase-encryption-key)" MEILI_MASTER_KEY="$(<%d/meili-master-key)" POCKETBASE_SMTP_USERNAME="$(<%d/wanderer-mail-username)" POCKETBASE_SMTP_PASSWORD="$(<%d/wanderer-mail-password)" POCKETBASE_SMTP_SENDER_ADDRESS="$(<%d/wanderer-mail-username)" exec /opt/wanderer-build/pocketbase serve --dir .'
+# the meili-master-key credential comes from shared.d/meili-master-key.conf
+# pocketbase-meilisearch-proxy.socket + meilisearch-proxy.service proxies port 7700 from pocketbase’s network namespace into meilisearch’s
+Environment=MEILI_URL=http://localhost:7700
+Environment=ORIGIN=https://wanderer.lucaswerkmeister.de
+Environment=POCKETBASE_SMTP_ENABLED=true POCKETBASE_SMTP_SENDER_NAME=Wanderer POCKETBASE_SMTP_HOST=mail.lucaswerkmeister.de POCKETBASE_SMTP_PORT=587
+SetCredentialEncrypted=pocketbase-encryption-key: \
+        Whxqht+dQJax1aZeCGLxmiAAAAABAAAADAAAABAAAACEDVnckUMj7qwo1V8AAAAA0VoVFzT/eWFsY9Y \
+        83fE2/79ysOUc6TlhXmjIFi7Z5GG03uT2QqA9lqOTq1/ep/S9LF6sV+ofs2XNI5aRfskZZgTmUDIj8f \
+        0hq4UBVLhE02vt6ApEfyqflocfEPHuGwqMWA==
+SetCredentialEncrypted=wanderer-mail-username: \
+        Whxqht+dQJax1aZeCGLxmiAAAAABAAAADAAAABAAAAC3lpiTfvjORktgAw4AAAAAhM00An1R+O0YoRa \
+        hRxBGEAQOisbd2o7nk8qDZ82AFXYfkXp17GfBlMujSYC50ORKM+abpg7e+C+FNxcY2RpH6fV2XRnX+t \
+        KMFr3Mj5riFG6zP0BI+00nFhaUuOkG
+SetCredentialEncrypted=wanderer-mail-password: \
+        Whxqht+dQJax1aZeCGLxmiAAAAABAAAADAAAABAAAABe6Rd2GIPASCfSOdEAAAAAskDRtLJqMI6qRki \
+        rDCjbLLbg9hYc/VoZ5RJlzkNPTwqYSVCgGOjBIKwd2vmP1K3SBjEqr/4/d5pyOK8eBkyp1LfxPNl+gT \
+        fUHQqBjTKPhU1I8jk6uI2HHS+AcbtjeBFalQ==
+StateDirectory=%N
+WorkingDirectory=%S/%N
+SyslogIdentifier=%N
+BindReadOnlyPaths=/opt/wanderer-build/migrations:%S/%N/migrations
+BindReadOnlyPaths=/opt/wanderer-build/templates:%S/%N/templates
+
+CapabilityBoundingSet=
+DynamicUser=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+PrivateUsers=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SocketBindAllow=8090
+SocketBindDeny=any
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged
+
+[Install]
+WantedBy=multi-user.target

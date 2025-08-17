@@ -1,0 +1,38 @@
+[Unit]
+Description=Meilisearch (for Wanderer)
+Documentation=https://www.meilisearch.com/
+
+[Service]
+ExecStart=bash -c 'MEILI_MASTER_KEY="$(<%d/meili-master-key)" exec /opt/wanderer-build/meilisearch --no-analytics'
+# the meili-master-key credential comes from shared.d/meili-master-key.conf
+StateDirectory=%N
+WorkingDirectory=%S/%N
+SyslogIdentifier=%N
+
+CapabilityBoundingSet=
+DynamicUser=yes
+IPAddressAllow=localhost
+IPAddressDeny=any
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+PrivateDevices=yes
+# meilisearch-proxy.{service,socket} proxies port 7700 into the private network
+PrivateNetwork=yes
+PrivateUsers=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged
+
+[Install]
+WantedBy=multi-user.target
