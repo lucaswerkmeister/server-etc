@@ -2,3 +2,4 @@ Types: deb deb-src
 URIs: http://ftp.de.debian.org/debian/
 Suites: trixie-backports
 Components: main
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
