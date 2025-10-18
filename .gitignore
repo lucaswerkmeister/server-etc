@@ -5,6 +5,7 @@
 !/dovecot/
 !/fail2ban/
 !/spamassassin/
+!/ssh/
 !/thelounge/
 !/tmpfiles.d/
 !/unbound/
