@@ -26,3 +26,9 @@ if anyof (header :contains "X-Spam-Level" "*****",
         setflag "\\Seen";
     }
 }
+
+# Throw away emails to this fake address
+if address "To" "u003cmail@lucaswerkmeister.de" {
+    discard;
+    stop;
+}
