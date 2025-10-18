@@ -61,10 +61,10 @@ MaxSessions 50
 PasswordAuthentication no
 #PermitEmptyPasswords no
 
-# Change to "yes" to enable keyboard-interactive authentication.  Depending on
-# the system's configuration, this may involve passwords, challenge-response,
-# one-time passwords or some combination of these and other methods.
-# Beware issues with some PAM modules and threads.
+# Change to "yes" to enable keyboard-interactive authentication.  Depending on
+# the system's configuration, this may involve passwords, challenge-response,
+# one-time passwords or some combination of these and other methods.
+# Beware issues with some PAM modules and threads.
 KbdInteractiveAuthentication no
 
 # Kerberos options
