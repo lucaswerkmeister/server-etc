@@ -27,8 +27,9 @@ if anyof (header :contains "X-Spam-Level" "*****",
     }
 }
 
-# Throw away emails to this fake address
-if address "To" "u003cmail@lucaswerkmeister.de" {
+# Throw away emails to these fake addresses
+if anyof(address "To" "u003cmail@lucaswerkmeister.de",
+         address "To" "cmail@lucaswerkmeister.de") {
     discard;
     stop;
 }
