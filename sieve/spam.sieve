@@ -19,8 +19,8 @@ if header :contains "X-Spam-Level" "**********" {
 }
 
 # File low-level spam and viruses in spam bucket
-if anyof (header :contains "X-Spam-Level" "*****",
-          header :contains "X-Virus-Status" "Infected" ) {
+if anyof(header :contains "X-Spam-Level" "*****",
+         header :contains "X-Virus-Status" "Infected") {
     fileinto "Junk";
     if header :contains "X-Spam-Level" "*****" {
         setflag "\\Seen";
