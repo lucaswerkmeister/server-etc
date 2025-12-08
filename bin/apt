@@ -1,0 +1,11 @@
+#!/bin/sh
+case "$1" in
+    update|upgrade|dist-upgrade|full-upgrade|install|remove|autoremove|purge)
+        exec systemd-run -qtG /usr/bin/apt "$@";;
+    show|search|list|moo|changelog)
+        exec /usr/bin/apt "$@";;
+    *)
+        printf >&2 "%s: unknown operation '%s', assuming no systemd-run needed\n" "$0" "$1"
+        exec /usr/bin/apt "$@"
+        ;;
+esac
