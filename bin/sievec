@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ "$#" -gt 1 ]; then
+    printf >&2 '%s: incorrect usage (cannot be called with glob); use this instead:\n' "$0"
+    printf >&2 'for file in sieve/*.sieve; do sievec "$file"; done\n'
+    exit 1
+else
+    exec /usr/bin/sievec "$@"
+fi
