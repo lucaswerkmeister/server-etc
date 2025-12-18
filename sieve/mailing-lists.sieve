@@ -97,7 +97,8 @@ if header :is "Mailing-List" "contact tarsnap-announce-help@tarsnap.com; run by 
     fileinto "tarsnap-announce";
 }
 
-if header :is "Mailing-List" "contact translate-help@lists.ccc.de; run by ezmlm" {
+if anyof(header :is "Mailing-List" "contact translate-help@lists.ccc.de; run by ezmlm",
+         header :is "List-Id" "\"Announcements about c3lingo activities, low volume, mostly around Congress\" <announce.lists.c3lingo.org>") {
     fileinto "c3lingo";
 }
 
