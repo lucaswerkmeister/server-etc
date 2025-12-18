@@ -24,7 +24,7 @@
 # userdb passwd {
 # }
 
-# System users (NSS, /etc/passwd, or similiar).
+# System users (NSS, /etc/passwd, or similar).
 # In many systems nowadays this uses Name Service Switch, which is
 # configured in /etc/nsswitch.conf. <https://doc.dovecot.org/latest/core/config/auth/databases/passwd.html>
 #passdb passwb {
