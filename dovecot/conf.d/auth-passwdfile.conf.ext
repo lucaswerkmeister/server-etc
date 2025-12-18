@@ -10,7 +10,7 @@
 #}
 
 #userdb passwd-file {
-#  auth_username_format=%{user}
+#  auth_username_format = %{user}
 #  passwd_file_path = /etc/dovecot/users
 
 #  fields {
