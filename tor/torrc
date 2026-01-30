@@ -158,8 +158,7 @@ ContactInfo Lucas Werkmeister\
  proof:uri-rsa\
  ciissversion:2\
  pgp:6B895B8B11A475B1EC931698FC46287272AE323F\
- keybase:lucaswerkmeister\
- twitter:LucasWerkmeistr\
+ mastodon:https://wikis.world/@LucasWerkmeister\
  hoster:www.hetzner.com\
  cost:46.41EUR\
  uplinkbw:1000\
@@ -170,7 +169,7 @@ ContactInfo Lucas Werkmeister\
  offlinemasterkey:n\
  sandbox:y\
  scheduler:default\
- os:debian/10\
+ os:debian/13\
  tls:openssl\
  aesni:y\
  autoupdate:y\
