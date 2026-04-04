@@ -6,6 +6,8 @@ After=meilisearch-proxy.socket
 
 [Service]
 ExecStart=node index.js
+# allow up to 50 MiB of uploads (e.g. “summit book” entries); compare https://github.com/open-wanderer/wanderer/issues/4
+Environment=BODY_SIZE_LIMIT=50M
 Environment=MEILI_URL=http://localhost:7700
 Environment=ORIGIN=https://wanderer.lucaswerkmeister.de
 Environment=PUBLIC_DISABLE_SIGNUP=true
