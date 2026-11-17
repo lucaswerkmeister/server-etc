@@ -126,6 +126,12 @@ mailman   unix  -       n       n       -       -       pipe
   ${nexthop} ${user}
 
 # dovecot
+# the -d ${user}@${domain}, rather than -d ${recipient}, lets sub-addressing work –
+# postfix gets an email for mail+test@DOMAIN and sends it to deliver with
+# -d mail@DOMAIN -a mail+test@DOMAIN
+# optionally, -m ${extension} could be added to let dovecot send the email straight to a specific folder,
+# but I don’t actually want that – my folders are managed via Sieve,
+# I don’t want emails to let themselves get sorted straight into a certain folder they don’t belong in
 dovecot   unix  -       n       n       -       -       pipe
   flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver
-  -f ${sender} -d ${recipient} -m ${extension}
+  -f ${sender} -d ${user}@${domain} -a ${original_recipient}
