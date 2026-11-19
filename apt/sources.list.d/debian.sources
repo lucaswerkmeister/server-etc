@@ -23,7 +23,7 @@ Components: main non-free-firmware contrib
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 Types: deb
-URIs: http://security.debian.org/debian-security/
+URIs: https://security.debian.org/debian-security/
 Suites: trixie-security
 Components: main contrib non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
